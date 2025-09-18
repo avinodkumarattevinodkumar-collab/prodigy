@@ -1,0 +1,20 @@
+import time
+
+def stopwatch():
+    print("Stopwatch started...")
+    print("Press Ctrl+C to stop\n")
+    start_time = time.time()
+    
+    try:
+        while True:
+            elapsed_time = time.time() - start_time
+            mins, secs = divmod(elapsed_time, 60)
+            hours, mins = divmod(mins, 60)
+            time_format = f"{int(hours):02}:{int(mins):02}:{int(secs):02}"
+            print(time_format, end="\r")
+            time.sleep(1)
+    except KeyboardInterrupt:
+        print("\nStopwatch stopped.")
+
+if __name__ == "__main__":
+    stopwatch()
